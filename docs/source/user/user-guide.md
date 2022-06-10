@@ -37,7 +37,8 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:disp="http://pds.nasa.gov/pds4/disp/v1"
-    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd          http://pds.nasa.gov/pds4/disp/v1 http://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1B00.xsd">
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd          
+    http://pds.nasa.gov/pds4/disp/v1 http://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1B00.xsd">
 
 *Give (and explain) a label snippet showing the location
 of the classes and attributes in the label; i.e., inside the Discipline_Area
@@ -45,34 +46,21 @@ tag. Collapse the lower level classes if needed for brevity.*
         <Discipline_Area>
             <disp:Display_Settings>
                 <Local_Internal_Reference>
-                    <pds:comment>First attempt at 2D-Array image label making</pds:comment>
-                    <pds:local_identifier_reference>image now</pds:local_identifier_reference>
-                    <pds:local_reference_type>display_settings_to_array</pds:local_reference_type>
-                </Local_Internal_Reference>
-                <Local_Internal_Reference>
-                    <pds:local_identifier_reference>frame_2_image</pds:local_identifier_reference>
-                    <pds:local_reference_type>display_settings_to_array</pds:local_reference_type>
-                </Local_Internal_Reference>
-                <Local_Internal_Reference>
-                    <pds:local_identifier_reference>frame_3_image</pds:local_identifier_reference>
-                    <pds:local_reference_type>display_settings_to_array</pds:local_reference_type>
-                </Local_Internal_Reference>
-                <Local_Internal_Reference>
-                    <pds:local_identifier_reference>frame_4_image</pds:local_identifier_reference>
-                    <pds:local_reference_type>display_settings_to_array</pds:local_reference_type>
-                </Local_Internal_Reference>
-                <Local_Internal_Reference>
-                    <pds:local_identifier_reference>frame_5_image</pds:local_identifier_reference>
-                    <pds:local_reference_type>display_settings_to_array</pds:local_reference_type>
+                    <local_identifier_reference>array-3d-spectrum</local_identifier_reference>
+                    <local_reference_type>display_settings_to_array</local_reference_type>
                 </Local_Internal_Reference>
                 <disp:Display_Direction>
-                    <disp:horizontal_display_axis>Line</disp:horizontal_display_axis>
+                    <disp:comment>
+                        This class specifies how two of the dimensions of the Array_3D_Spectrum object
+                        should be displayed in the vertical (line) and horizontal (sample) dimensions
+                        of a display device.
+                    </disp:comment>
+                    <disp:horizontal_display_axis>Sample</disp:horizontal_display_axis>
                     <disp:horizontal_display_direction>Left to Right</disp:horizontal_display_direction>
-                    <disp:vertical_display_axis>Sample</disp:vertical_display_axis>
-                    <disp:vertical_display_direction>Bottom to Top</disp:vertical_display_direction>
+                    <disp:vertical_display_axis>Line</disp:vertical_display_axis>
+                    <disp:vertical_display_direction>Top to Bottom</disp:vertical_display_direction>
                 </disp:Display_Direction>
             </disp:Display_Settings>
-        </Discipline_Area>
 
 *In general, for label snippets use a fixed-width font and
 consistent indentation. Color-coding is helpful. Label snippets copied from an
@@ -94,8 +82,7 @@ following subsections, but don’t forget to provide a high-level view of how th
 classes relate to one another.*
 
 ## Display_Settings
-
-This is the main class for the Display Dictionary. It is required and is used to include display information in any label that includes one or more array-type objects. This class is repeated for each object that needs display information.
+This is the main class for the Display Dictionary. It is required and is used to include display information in any label that includes one or more array-type objects. This class is repeated for each object that needs display information and specifies how two of the dimensions of an Array object should be displayed in the vertical (line) and horizontal (sample) dimensions of a display device.
 
 *Give a schematic diagram or a list of the attributes in this class in order of 
 appearance in label. Refer reader to Definitions section for complete definitions.*
@@ -114,7 +101,7 @@ This required attribute identifies the array object ro which this instance of Di
 This required attribute must have the value *display_settings_to_array*.
 
 ### Display_Direction
-This required class defines the correct orientation for displaying the array axes associated with a single image plane (that is, the Line and Sample axes).
+This required class defines the correct orientation for displaying the array axes associated with a single image plane (that is, the Line and Sample axes). Use this class to specify how two of the dimensions of an Array object should be displayed in the vertical (line) and horizontal (sample) dimensions of a display device.
 
 #### comment
 An optional free format text field used to include and clarifying information needed.
@@ -143,7 +130,7 @@ as appropriate. Refer reader to Examples section for complete examples.*
 *List and explain any rules that apply to this class (e.g. from Schematron).*
 
 ### Color_Display_Settings
-Use this class if your array object is an RGB color image, or a banded image for which you would like to define a default set of channels to be interpreted as RGB levels.
+This class provides guidance to data users on how to display a multi-banded Array object on a color-capable display device. Use this class if your array object is an RGB color image, or a banded image for which you would like to define a default set of channels to be interpreted as RGB levels.
 
 #### color_display_axis
 This required attribute must correspond to the *axis_name* value of one of the axes of the relavant array-type object. This axis is considered to be the "color" or "band" axis.
@@ -161,7 +148,7 @@ This required attribute is the subscript to be used in the named *color_display_
 This required attribute is the subscript to be used in the named *color_display_axis* for the blue (B) value.
 
 ### Movie_Display_Settings
-Use this class to define a time axis and parameters for displaying the associated array object as a movie.
+Use this class to define a time axis and parameters for displaying the associated array object as a movie. This class provides default values for the display of a multi-banded Array using a software application capable of displaying video content.
 
 #### time_display_axis
 The value of this required attribute must correspond to the *axis_name* value of one of the axes of the relevant array-type object. This is the axis that will be considered the "time" axis. 
