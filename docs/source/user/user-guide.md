@@ -107,58 +107,77 @@ This required class is used to identify the specific array-type object to which 
 #### comment
 An optional free format text field used to include and clarifying information needed.
 
-#### local_identifier_reference
-This required attribute identifies the array object ro which this instance of Display_Settings applies.
+   `<comment>`*additional information provided here*`</comment>`
 
+#### local_identifier_reference
+This required attribute identifies the array object for which this instance of Display_Settings applies. This value must match the value entered in the <local_identifier> attribute for the associated array object in the <File_Area>.
+
+   <local_identifier_reference>*local_identifier*</local_identifier_reference>
+    
 #### local_reference_type
 This required attribute must have the value *display_settings_to_array*.
 
+   <local_reference_type>display_settings_to_array</local_reference_type>
+    
 ### Display_Direction
 This required class defines the correct orientation for displaying the array axes associated with a single image plane (that is, the Line and Sample axes).
 
 #### comment
 An optional free format text field used to include and clarifying information needed.
 
+   `<comment>`*additional information provided here*`</comment>`
+   
 #### horizontal_display_axis
-This required attribute identifies which axis of the array is considered the horizontal (or "sample") axis by referencing the *axis_name* value. The value must match the name exactly.
+This required attribute identifies which axis of the array is considered the horizontal (or "sample") axis by referencing the *axis_name* value. The value must match the name exactly. 
+
+   <horizontal_display_axis>*axis_name*</horizontal_display_axis>
 
 #### horizontal_display_direction
 This required attribute indicates the direct in which the pixels should be drawn sequentially along the horizontal axis of the display device. The value entered must be one of the following:
 - Left to Right
 - Right to Left
 
+   <horizontal_display_direction>Left to Right</horizontal_display_direction>
+    
 #### vertical_display_axis
 This required attribute identifies which axis of the array is considered the vertical (or "line") axis by referencing the *axis_name* value. The value must match the name exactly.
+ 
+   <vertical_display_axis>*axis_name*</vertical_display_axis>
  
 #### vertical_display_direction
 This required attribute indicates the direction in which lines of pixels should be stacked sequentially along the vertical direction of the display device. The value entered must be one of the following:
 - Top to Bottom
 - Bottom to Top
 
-*Give label snippets showing use of the class and attributes, with annotations 
-as appropriate. Refer reader to Examples section for complete examples.*
-
-*Explain why some things are required and others are optional.*
-
-*List and explain any rules that apply to this class (e.g. from Schematron).*
-
+   <vertical_display_direction>Top to Bottom</vertical_display_direction>
+    
 ### Color_Display_Settings
 Use this class if your array object is an RGB color image, or a banded image for which you would like to define a default set of channels to be interpreted as RGB levels.
 
 #### color_display_axis
-This required attribute must correspond to the *axis_name* value of one of the axes of the relavant array-type object. This axis is considered to be the "color" or "band" axis.
+This required attribute must correspond to the *axis_name* value of one of the axes of the relavant array-type object. This axis is considered to be the "color" or "band" axis. The value of this attribute must match the value of one, and only one, axis_name attribute in an Axis_Array class of the associated Array. 
+
+   <color_display_axis>*axis_name*</color_display_axis>
 
 #### comment
 Use this optional free-format text attribute for any additional information.
 
+   `<comment>`*additional information provided here*`</comment>`
+
 #### red_channel_band
-This required attribute is the subscript to be used in the named *color_display_axis* for the red (R) value.
+This required attribute is the subscript to be used in the named *color_display_axis* for the red (R) value. Values for this attribute are integer format and can range from 1 to 9x10E18.
+
+   <red_channel_band>30</red_channel_band>
 
 #### green_channel_band
-This required attribute is the subscript to be used in the named *color_display_axis* for the green (G) value.
+This required attribute is the subscript to be used in the named *color_display_axis* for the green (G) value. Values for this attribute are integer format and can range from 1 to 9x10E18.
+
+   <green_channel_band>100</green_channel_band>
 
 #### blue_channel_band
-This required attribute is the subscript to be used in the named *color_display_axis* for the blue (B) value.
+This required attribute is the subscript to be used in the named *color_display_axis* for the blue (B) value. Values for this attribute are integer format and can range from 1 to 9x10E18.
+
+   <blue_channel_band>10</blue_channel_band>
 
 ### Movie_Display_Settings
 Use this class to define a time axis and parameters for displaying the associated array object as a movie.
@@ -166,29 +185,38 @@ Use this class to define a time axis and parameters for displaying the associate
 #### time_display_axis
 The value of this required attribute must correspond to the *axis_name* value of one of the axes of the relevant array-type object. This is the axis that will be considered the "time" axis. 
 
+   <time_display_axis>*axis_name*</time_display_axis> 
+
 #### comment
 Use this optional free-format text attribute for any additional information.
+
+   `<comment>`*additional information provided here*`</comment>`
 
 #### frame_rate
 This optional attribute indicates how many images should be displayed each second. A unit, such as "frames/s" must be specified. The minimum value is 1.0.
 
-	<frame_rate unit="frames/s">12</frame_rate>
+   <frame_rate unit="frames/s">12</frame_rate>
 
 #### loop_flag
 This optional attribute contains the value *true* if the movie should be looped or *false* if not.
 
+   <loop_flag>true</loop_flag>
+
 #### loop_count
 This optional attribute contains the number of times the movie should be looped before being stopped. The minimum value is one.
 
-#### loop_delay
-This optional attribute gives the amount of time to pause between playback loops. A unit, such as "ms", must be included. The minimum value is zero.
+   <loop_count>5</loop_count>
 
-	<loop_delay="ms">500</loop_delay>
+#### loop_delay
+This optional attribute gives the amount of time to pause between playback loops. A unit must be included. Units allowed are: day, hr, julian day, microseconds, min, ms, ns, s, and yr. The minimum value is zero.
+
+   <loop_delay="ms">500</loop_delay>
 
 #### loop_back_and_forth_flag
 This optional attribute contains the value *true* if the movie should be played alternately forward and in reverse while looping, or *false* if it should only be played in the forward direction when looping.
 
-
+   <loop_back_and_forth_flag>false</loop_back_and_forth_flag>
+    
 [repeat this subsection for each class]
 
 # Definitions
