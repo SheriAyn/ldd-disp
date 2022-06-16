@@ -1,15 +1,10 @@
-6/3/2022  
+6/16/2022  
 Display DMSP Team
 
 > Note to authors who use this outline: The outline is a
 > suggestion only. It includes the minimum of content needed to inform the
 > dictionary user. Authors are expected to tailor the outline to their particular
 > purposes, elaborating and providing context as needed.
-
-# Introduction
-   1. The purpose of this User’s Guide is to describe the classes and attributes used to define the way images and movies are included in a PDS4 label.
-   1. The intended audience is anyone who needs to create/use PDS4 labels to describe/view image and movie data.
-   1. Applicable Documents
 
 # Overview of the Display Local Data Dictionary
 
