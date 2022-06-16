@@ -22,6 +22,7 @@ takes: the input ingest file, the output schema, Schematron, and other files,
 which ones are necessary and which ones may be ignored.*
 
 *Give the URL at PDS where the dictionary files may be downloaded.*
+
 [https://pds.nasa.gov/datastandards/dictionaries/index-1.17.0.0.shtml#disp]
 
 *Give (and explain) a label snippet showing the beginning lines of a 
