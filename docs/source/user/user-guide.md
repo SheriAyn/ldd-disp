@@ -27,6 +27,7 @@ which ones are necessary and which ones may be ignored.*
 *Give (and explain) a label snippet showing the beginning lines of a 
 label to demonstrate the use of the dictionary schema and schematron
 in the xml prolog and the root tag (preferably Product_Observational).*
+
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.sch"
 schematypens="http://purl.oclc.org/dsdl/schematron"?>
@@ -42,6 +43,7 @@ schematypens="http://purl.oclc.org/dsdl/schematron"?>
 *Give (and explain) a label snippet showing the location
 of the classes and attributes in the label; i.e., inside the Discipline_Area
 tag. Collapse the lower level classes if needed for brevity.*
+
         <Discipline_Area>
             <disp:Display_Settings>
                 <Local_Internal_Reference>
