@@ -23,23 +23,23 @@ which ones are necessary and which ones may be ignored.*
 
 *Give the URL at PDS where the dictionary files may be downloaded.*
 
-[https://pds.nasa.gov/datastandards/dictionaries/index-1.17.0.0.shtml#disp]
+    [https://pds.nasa.gov/datastandards/dictionaries/index-1.17.0.0.shtml#disp]
 
 *Give (and explain) a label snippet showing the beginning lines of a 
 label to demonstrate the use of the dictionary schema and schematron
 in the xml prolog and the root tag (preferably Product_Observational).*
 
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.sch"
-schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="http://http://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1B00.sch"
-schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<Product_Observational 
-    xmlns="http://pds.nasa.gov/pds4/pds/v1"
-    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:disp="http://pds.nasa.gov/pds4/disp/v1"
-    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd          http://pds.nasa.gov/pds4/disp/v1 http://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1B00.xsd">
+    <?xml version="1.0" encoding="UTF-8"?>
+    <?xml-model href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+    <?xml-model href="http://http://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1B00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+    <Product_Observational 
+        xmlns="http://pds.nasa.gov/pds4/pds/v1"
+        xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:disp="http://pds.nasa.gov/pds4/disp/v1"
+        xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1C00.xsd http://pds.nasa.gov/pds4/disp/v1     http://pds.nasa.gov/pds4/disp/v1/PDS4_DISP_1B00.xsd">
 
 *Give (and explain) a label snippet showing the location
 of the classes and attributes in the label; i.e., inside the Discipline_Area
